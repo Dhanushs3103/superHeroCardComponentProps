@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        body {
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F7EFE5;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            margin: 0;
+            margin-top: 50px;
+            color: #91C8E4;
+        }
+
+        #main {
+            width: 70%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .containers {
+            background-color:#F5F7F8;
+            width: 400px;
+            padding: 10px;
+            border-radius: 20px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        }
+
+        img {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+        }
+
+        p{
+            font-size: 25px;
+            font-weight: 500;
+            margin: 0;
+            margin-left: 15px;
+            margin-bottom: 10px;
+            color: #5C5470;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            padding-left: 25px;
+            margin: 10px 0;
+        }
+
+        li {
+            font-size: 25px;
+            margin: 0;
+            list-style-type: none;
+            font-weight: 500;
+            color: #61677A;
+        }
+
+    </style>
+    <title>SuperHero Cards</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<script type="text/babel">
+    const superheroes = [
+      {
+        name: "Batman",
+        powers: ["Rich", "Fly", "Genius"],
+        address: {
+          street: "Gotham St",
+          city: "Gotham",
+          country: "USA",
+        },
+        age: 21,
+        isBachelor: true,
+        imageUrl:
+          "https://images.hdqwalls.com/download/batman-begins-4k-rn-320x240.jpg",
+      },
+      {
+        name: "Superman",
+        powers: ["Laser Fry", "Fly", "Runs Fast"],
+        address: {
+          street: "Central St",
+          city: "New York",
+          country: "USA",
+        },
+        age: 41,
+        isBachelor: false,
+        imageUrl:
+          "https://cdn.alfabetajuega.com/alfabetajuega/2018/12/Superman.jpg?width=400",
+      },
+    ];
+
+    function SuperheroCard({superheroes}) {
+      return (
+        <>
+          <div id="main">
+            <div className="containers">
+           <div className="card">
+            <img src={superheroes[0].imageUrl} width="200px"alt="Batman"/>
+            <p>Name: {superheroes[0].name}</p>
+            <p> Age: {superheroes[0].age}</p>
+            <p>Powers: {superheroes[0].powers.join(", ")}.</p>
+            <p>Address: </p>
+            <ul>
+                <li>Street: {superheroes[0].address.street}</li>
+                <li>City: {superheroes[0].address.city}</li>
+                <li>Country: {superheroes[0].address.country}</li> 
+            </ul>
+            <p>Is-Bachelor: {superheroes[0].isBachelor ? <span style={{color:"red"}}>Yes</span> : <span style={{color:"green"}}>No</span>}</p>
+           </div>
+        </div>  
+
+        <div className="containers">
+           <div className="card">
+            <img src={superheroes[1].imageUrl} width="200px"alt="Batman"/>
+            <p>Name: {superheroes[1].name}</p>
+            <p> Age: {superheroes[1].age}</p>
+            <p>Powers: {superheroes[1].powers.join(", ")}.</p>
+            <p>Address: </p>
+            <ul>
+                <li>Street: {superheroes[1].address.street}</li>
+                <li>City: {superheroes[1].address.city}</li>
+                <li>Country: {superheroes[1].address.country}</li> 
+            </ul>
+            <p>Is-Bachelor: {superheroes[1].isBachelor ? <span style={{color:"red"}}>Yes</span> : <span style={{color:"green"}}>No</span>}</p>
+           </div>
+        </div>  
+          </div>
+        </>
+      );
+    }
+
+    function App() {
+      return (
+        <>
+         <h1>SUPERHEROS CARDS</h1>
+          <SuperheroCard  superheroes = {superheroes}/>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    console.log(superheroes)
+  </script>
+</html>
+
